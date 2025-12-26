@@ -36,11 +36,42 @@ export async function generateMetadata({
     const { lang } = await params;
     const dict = await getDictionary(lang as Locale);
 
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://firstspawn.com';
+
     return {
-        title: dict.common.brand,
+        metadataBase: new URL(baseUrl),
+        title: {
+            default: dict.common.brand,
+            template: `%s | ${dict.common.brand}`,
+        },
         description: dict.common.tagline,
         icons: {
-            icon: "@/public/favicon.ico",
+            icon: '/favicon.ico',
+        },
+        openGraph: {
+            title: dict.common.brand,
+            description: dict.common.tagline,
+            url: baseUrl,
+            siteName: dict.common.brand,
+            locale: lang,
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: dict.common.brand,
+            description: dict.common.tagline,
+            creator: '@FirstSpawn', // Replace with actual handle if available
+        },
+        robots: {
+            index: true,
+            follow: true,
+            googleBot: {
+                index: true,
+                follow: true,
+                'max-video-preview': -1,
+                'max-image-preview': 'large',
+                'max-snippet': -1,
+            },
         },
     };
 }
