@@ -59,14 +59,14 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
     );
 
     return (
-        <nav className="sticky top-0 z-[100] bg-[#1a1a1a]/95 backdrop-blur-md border-b-4 border-black px-4 py-3">
+        <nav className="sticky top-0 z-[100] bg-navbar-bg/95 backdrop-blur-md border-b-4 border-black px-4 sm:px-6 lg:px-8 py-3">
             <div className="max-w-7xl mx-auto flex items-center justify-between">
                 {/* Brand & Mobile Toggle */}
                 <div className="flex items-center gap-4">
                     {/* Hamburger Button (Mobile Only) */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="md:hidden flex flex-col gap-1.5 p-2 bg-panel border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-[1px] active:translate-y-[1px]"
+                        className="md:hidden flex flex-col gap-1.5 p-2 bg-bg-panel border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-[1px] active:translate-y-[1px]"
                         aria-label="Menu"
                     >
                         <div className={`w-6 h-0.5 bg-white transition-all ${isOpen ? "rotate-45 translate-y-2" : ""}`} />
@@ -75,7 +75,7 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
                     </button>
 
                     <Link href={`/${lang}`} className="flex items-center gap-3 group">
-                        <div className="w-10 h-10 bg-accent-blue border-2 border-black flex items-center justify-center text-white pixel-font text-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover:translate-x-0.5 group-hover:translate-y-0.5 group-hover:shadow-none transition-all">
+                        <div className="w-10 h-10 bg-primary border-2 border-black flex items-center justify-center text-white pixel-font text-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover:translate-x-0.5 group-hover:translate-y-0.5 group-hover:shadow-none transition-all">
                             F
                         </div>
                         <div className="hidden sm:block">
@@ -99,7 +99,7 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
                 {/* Mobile Right Content */}
                 <div className="md:hidden flex items-center gap-2">
                     <div className="sm:hidden pixel-font text-[10px] text-zinc-500">
-                        SPAWN
+                        FIRSTSPAWN
                     </div>
                 </div>
             </div>
@@ -116,16 +116,16 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
             {/* Mobile Sidebar (Drawer) */}
             <div
                 className={`
-                    fixed top-0 left-0 h-[100dvh] w-[85%] max-w-[320px] bg-panel border-r-4 border-black z-[102] transition-transform duration-300 ease-in-out md:hidden flex flex-col
+                    fixed top-0 left-0 h-[100dvh] w-[85%] max-w-[320px] bg-bg-panel border-r-4 border-black z-[102] transition-transform duration-300 ease-in-out md:hidden flex flex-col
                     ${isOpen ? "translate-x-0" : "-translate-x-full"}
                 `}
             >
                 {/* Drawer Header */}
-                <div className="p-5 border-b-4 border-black bg-[#1a1a1a] flex items-center justify-between flex-shrink-0">
-                    <div className="pixel-font text-sm text-accent-blue tracking-widest">NAV_TERMINAL</div>
+                <div className="p-5 border-b-4 border-black bg-navbar-bg flex items-center justify-between flex-shrink-0">
+                    <div className="pixel-font text-sm text-primary tracking-widest">NAV_TERMINAL</div>
                     <button
                         onClick={() => setIsOpen(false)}
-                        className="w-10 h-10 flex items-center justify-center border-2 border-black bg-panel-light shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-[2px] active:translate-y-[2px]"
+                        className="w-10 h-10 flex items-center justify-center border-2 border-black bg-secondary shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-[2px] active:translate-y-[2px]"
                     >
                         <span className="pixel-font text-sm text-white">X</span>
                     </button>
@@ -139,7 +139,7 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
                 </div>
 
                 {/* Footer / Locale Switcher in Drawer */}
-                <div className="p-6 border-t-4 border-black bg-[#1a1a1a] flex-shrink-0">
+                <div className="p-6 border-t-4 border-black bg-navbar-bg flex-shrink-0">
                     <p className="pixel-font text-[10px] text-gray-500 mb-4 tracking-tighter uppercase">Environment.Locale</p>
                     <LocaleSwitcher currentLocale={lang} variant="inline" />
                 </div>

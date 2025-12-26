@@ -1,27 +1,54 @@
 @import "tailwindcss";
 
 :root {
-  --background: #1a1a1a;
+  --background: #050505;
   --foreground: #f0f0f0;
-  --panel: #222222;
-  --panel-light: #333333;
   --border: #000000;
-  --accent-blue: #3b82f6;
-  --accent-blue-hover: #2563eb;
-  --accent-green: #4ade80;
-  --accent-purple: #a855f7;
+
+  /* Shared Palette */
+  --fs-diamond: #22d3ee;
+
+  /* Components & Layout */
+  --navbar-bg: #333333;
+  --footer-bg: #111111;
+  --footer-border: #3d3d3d;
+  --footer-grid: #333333;
+  --bg-panel: #222222;
+
+  /* Semantic Colors */
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --secondary: #333333;
+  --secondary-hover: #52525b; /* zinc-600 */
+  --success: #4ade80;
+  --success-hover: #22c55e; /* green-500 */
+  --danger: #dc2626; /* red-600 */
+  --danger-hover: #ef4444; /* red-500 */
+  
+  --accent-cyan: #22d3ee; /* cyan-400 */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-panel: var(--panel);
-  --color-panel-light: var(--panel-light);
+  --color-bg-panel: var(--bg-panel);
   --color-border: var(--border);
-  --color-accent-blue: var(--accent-blue);
-  --color-accent-blue-hover: var(--accent-blue-hover);
-  --color-accent-green: var(--accent-green);
-  --color-accent-purple: var(--accent-purple);
+  
+  --color-navbar-bg: var(--navbar-bg);
+  --color-footer-bg: var(--footer-bg);
+  --color-footer-border: var(--footer-border);
+  --color-footer-grid: var(--footer-grid);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-success: var(--success);
+  --color-success-hover: var(--success-hover);
+  --color-danger: var(--danger);
+  --color-danger-hover: var(--danger-hover);
+  --color-accent-cyan: var(--accent-cyan);
+  --color-fs-diamond: var(--fs-diamond);
 }
 
 @layer utilities {

@@ -22,10 +22,10 @@ const PixelButton: React.FC<PixelButtonProps> = ({
     ...props
 }) => {
     const variantStyles = {
-        primary: "bg-accent-blue hover:bg-accent-blue-hover text-white",
-        secondary: "bg-panel-light hover:bg-zinc-600 text-white",
-        danger: "bg-red-600 hover:bg-red-500 text-white",
-        success: "bg-accent-green hover:bg-green-500 text-white",
+        primary: "bg-primary hover:bg-primary-hover text-white",
+        secondary: "bg-secondary hover:bg-secondary-hover text-white",
+        danger: "bg-danger hover:bg-danger-hover text-white",
+        success: "bg-success hover:bg-success-hover text-white",
         outline: "bg-transparent border-fs-diamond text-accent-cyan shadow-pixel hover:bg-accent-cyan/10",
     };
 

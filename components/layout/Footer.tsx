@@ -77,10 +77,10 @@ export default function Footer({ lang, dictionary }: FooterProps) {
     ];
 
     return (
-        <footer className="bg-[#050505] border-t-8 border-[#3d3d3d] relative overflow-hidden">
+        <footer className="bg-footer-bg border-t-8 border-footer-border relative overflow-hidden">
              {/* Decorative Pixel Grid Background */}
              <div className="absolute inset-0 opacity-5 pointer-events-none" 
-                  style={{ backgroundImage: 'radial-gradient(#333 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
+                  style={{ backgroundImage: 'radial-gradient(var(--footer-grid) 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
              </div>
 
              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
@@ -103,8 +103,8 @@ export default function Footer({ lang, dictionary }: FooterProps) {
                    <div className="flex flex-col justify-center items-start md:items-end space-y-4">
                       <div className="bg-[#1a1a1a] p-4 border-2 border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] w-full max-w-sm">
                         <div className="flex items-center space-x-3 mb-2">
-                           <ShieldCheck className="text-accent-green" />
-                           <span className="pixel-font text-xs text-accent-green">{dictionary.footer.stats.title}</span>
+                           <ShieldCheck className="text-success" />
+                           <span className="pixel-font text-xs text-success">{dictionary.footer.stats.title}</span>
                         </div>
                         <div className="space-y-2 font-sans text-lg text-gray-300">
                            <div className="flex justify-between">
@@ -129,7 +129,7 @@ export default function Footer({ lang, dictionary }: FooterProps) {
                   
                   <div className="col-span-2 lg:col-span-2">
                      <div className="flex items-center mb-6">
-                        <div className="w-8 h-8 bg-accent-cyan border-2 border-black mr-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"></div>
+                        <div className="w-8 h-8 bg-fs-diamond border-2 border-black mr-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"></div>
                         <span className="pixel-font text-white">{dictionary.footer.brand.name}</span>
                      </div>
                      <p className="font-sans text-lg text-gray-500 mb-6 max-w-xs">
