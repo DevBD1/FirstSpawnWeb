@@ -12,9 +12,9 @@ export const size = {
 export const contentType = 'image/png';
  
 export default async function Image() {
-  // Using standard fonts available in Edge runtime or loading them if necessary.
-  // For simplicity in this iteration, we'll use system fonts but style them to look retro/terminal-like.
-  // In a real production setup, we would load the specific font file (Press Start 2P) here.
+  const pressStart2P = await fetch(
+    new URL('https://fonts.gstatic.com/s/pressstart2p/v15/e3t4euO8wC8HsKJxtQRhT8E5kQLX.woff', import.meta.url)
+  ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(
     (
@@ -27,11 +27,26 @@ export default async function Image() {
           alignItems: 'center',
           justifyContent: 'center',
           backgroundColor: '#050505',
-          fontFamily: 'monospace',
+          fontFamily: '"Press Start 2P"',
           position: 'relative',
         }}
       >
-        {/* Decorative Grid Background */}
+        {/* Background Grid */}
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundImage:
+              'linear-gradient(to right, #1a1a1a 1px, transparent 1px), linear-gradient(to bottom, #1a1a1a 1px, transparent 1px)',
+            backgroundSize: '40px 40px',
+            opacity: 0.3,
+          }}
+        />
+
+        {/* Radial Glow */}
         <div
             style={{
                 position: 'absolute',
@@ -39,74 +54,113 @@ export default async function Image() {
                 left: 0,
                 right: 0,
                 bottom: 0,
-                backgroundImage: 'radial-gradient(#333 1px, transparent 1px)',
-                backgroundSize: '40px 40px',
-                opacity: 0.2,
+                background: 'radial-gradient(circle at center, rgba(34, 211, 238, 0.15) 0%, transparent 70%)',
             }}
         />
 
-        {/* Outer Border */}
+        {/* Content Container */}
         <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            zIndex: 10,
+            padding: '40px',
+            border: '1px solid rgba(255,255,255,0.1)',
+            background: 'rgba(5,5,5,0.8)',
+            backdropFilter: 'blur(4px)',
+            borderRadius: '16px',
+            boxShadow: '0 0 40px rgba(0,0,0,0.5)',
+          }}
+        >
+          {/* Label */}
+          <div
             style={{
-                position: 'absolute',
-                top: '20px',
-                left: '20px',
-                right: '20px',
-                bottom: '20px',
-                border: '4px solid #22d3ee',
-                boxShadow: '0 0 20px rgba(34, 211, 238, 0.4), inset 0 0 20px rgba(34, 211, 238, 0.2)',
+              fontSize: 12,
+              letterSpacing: '2px',
+              color: '#22d3ee',
+              textTransform: 'uppercase',
+              marginBottom: 10,
+              fontWeight: 600,
             }}
-        />
+          >
+            Verified Discovery Node
+          </div>
 
-        {/* Content */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', zIndex: 10 }}>
-            {/* Logo / Brand */}
+          {/* Title */}
+          <div
+            style={{
+              fontSize: 50,
+              fontWeight: 900,
+              color: 'white',
+              lineHeight: 1,
+              marginBottom: 20,
+              letterSpacing: '-2px',
+              textShadow: '0 0 20px rgba(255,255,255,0.2)',
+            }}
+          >
+            FIRSTSPAWN
+          </div>
+
+          {/* Subtitle / Description */}
+          <div
+            style={{
+              fontSize: 18,
+              color: '#a1a1aa',
+              textAlign: 'center',
+              maxWidth: 700,
+              fontWeight: 400,
+              lineHeight: 1.5,
+            }}
+          >
+            The infrastructure for reliable voxel multiplayer. Verified uptime, no pay-to-win placements.
+          </div>
+
+          {/* Status Bar */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              marginTop: 40,
+              gap: 20,
+              padding: '12px 24px',
+              background: 'rgba(34, 211, 238, 0.1)',
+              border: '1px solid rgba(34, 211, 238, 0.2)',
+              borderRadius: '999px',
+            }}
+          >
             <div
                 style={{
-                    fontSize: 80,
-                    fontWeight: 900,
-                    color: '#fff',
-                    textShadow: '4px 4px 0px #22d3ee', // Cyan shadow
-                    letterSpacing: '-2px',
-                }}
-            >
-                FIRST_SPAWN
-            </div>
-
-            {/* Tagline */}
-            <div
-                style={{
-                    fontSize: 40,
-                    color: '#a1a1aa', // Zinc-400
-                    marginTop: '20px',
-                    textAlign: 'center',
-                    maxWidth: '800px',
-                }}
-            >
-                Find your forever server.
-            </div>
-
-            {/* Decorative "Status" */}
-            <div
-                style={{
-                    marginTop: '60px',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '15px',
-                    padding: '10px 20px',
-                    border: '2px solid #333',
-                    backgroundColor: '#111',
-                    borderRadius: '8px',
+                    gap: 8,
                 }}
             >
-                <div style={{ width: '16px', height: '16px', borderRadius: '50%', backgroundColor: '#4ade80' }} />
-                <div style={{ fontSize: '24px', color: '#fff' }}>SYSTEMS: ONLINE</div>
+                <div style={{ width: 8, height: 8, background: '#4ade80', borderRadius: '50%', boxShadow: '0 0 8px #4ade80' }} />
+                <span style={{ color: '#4ade80', fontSize: 14, fontWeight: 700 }}>SYSTEMS ONLINE</span>
             </div>
+            <div style={{ width: 1, height: 16, background: 'rgba(255,255,255,0.1)' }} />
+            <div style={{ color: '#94a3b8', fontSize: 14 }}>100% FAKE VOTES BLOCKED</div>
+          </div>
         </div>
+
+        {/* Decorative Corners */}
+        <div style={{ position: 'absolute', top: 40, left: 40, width: 20, height: 2, background: '#333' }} />
+        <div style={{ position: 'absolute', top: 40, left: 40, width: 2, height: 20, background: '#333' }} />
+        <div style={{ position: 'absolute', bottom: 40, right: 40, width: 20, height: 2, background: '#333' }} />
+        <div style={{ position: 'absolute', bottom: 40, right: 40, width: 2, height: 20, background: '#333' }} />
       </div>
     ),
     {
       ...size,
+      fonts: [
+        {
+          name: 'Press Start 2P',
+          data: pressStart2P,
+          style: 'normal',
+          weight: 400,
+        },
+      ],
     }
   );
 }
