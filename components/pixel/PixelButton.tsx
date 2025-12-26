@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 interface PixelButtonProps {
-    variant?: "primary" | "secondary" | "danger" | "success";
+    variant?: "primary" | "secondary" | "danger" | "success" | "outline";
     size?: "sm" | "md" | "lg";
     className?: string;
     children: React.ReactNode;
@@ -26,6 +26,7 @@ const PixelButton: React.FC<PixelButtonProps> = ({
         secondary: "bg-panel-light hover:bg-zinc-600 text-white",
         danger: "bg-red-600 hover:bg-red-500 text-white",
         success: "bg-accent-green hover:bg-green-500 text-white",
+        outline: "bg-transparent border-fs-diamond text-accent-cyan shadow-pixel hover:bg-accent-cyan/10",
     };
 
     const sizeStyles = {

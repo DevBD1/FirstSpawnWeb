@@ -9,10 +9,55 @@
         "console": "KONSOLE"
     },
     "footer": {
-        "copyright": "© 2024 FIRSTSPAWN VERIFIZIERTES ENTDECKUNGSPROTOKOLL",
-        "api": "API",
-        "legal": "RECHTLICHES",
-        "trustBadge": "TRUST BADGE"
+        "cta": {
+            "title": "Ready to find your",
+            "titleHighlight": "Forever Server?",
+            "subtitle": "Stop wasting time on pay-to-win billboards. Discover communities backed by verified uptime and real player retention.",
+            "getStarted": "Get Started",
+            "owners": "For Server Owners"
+        },
+        "stats": {
+            "title": "SYSTEM VERIFIED",
+            "fakeVotes": "Fake Votes Blocked",
+            "fakeVotesValue": "100%",
+            "uptime": "Uptime Verified",
+            "uptimeValue": "Real-time",
+            "filters": "Bot Filters",
+            "filtersValue": "Active"
+        },
+        "brand": {
+            "name": "FIRSTSPAWN",
+            "description": "The infrastructure for reliable voxel multiplayer discovery. We prioritize performance data over paid placements."
+        },
+        "columns": {
+            "platform": {
+                "title": "Platform",
+                "about": "About FirstSpawn",
+                "trust": "Trust & Verification",
+                "badges": "Server Badges",
+                "api": "API Status"
+            },
+            "resources": {
+                "title": "Resources",
+                "help": "Help Center",
+                "api": "Developer API",
+                "community": "Community Guidelines",
+                "partners": "Partner Program"
+            },
+            "legal": {
+                "title": "Legal",
+                "terms": "Terms of Service",
+                "privacy": "Privacy Policy",
+                "cookie": "Cookie Policy",
+                "acceptable": "Acceptable Use"
+            }
+        },
+        "bottom": {
+            "copyright": "© {year} FirstSpawn. Not affiliated with Mojang or Hypixel Studios.",
+            "systemsNormal": "Systems Normal",
+            "version": "v2.4.0",
+            "crafted": "Crafted with care"
+        }
     },
     "home": {
         "welcome": "Bereit, etwas Erstaunliches aufzubauen."
