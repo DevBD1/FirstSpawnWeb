@@ -35,7 +35,8 @@ export function proxy(request: NextRequest) {
             new URL(
                 `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
                 request.url
-            )
+            ),
+            308 // Permanent redirect for SEO
         );
     }
 }
