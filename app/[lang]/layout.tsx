@@ -38,8 +38,17 @@ export async function generateMetadata({
 
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://firstspawn.com';
 
+    const languages: Record<string, string> = {};
+    i18n.locales.forEach((locale) => {
+        languages[locale] = `${baseUrl}/${locale}`;
+    });
+
     return {
         metadataBase: new URL(baseUrl),
+        alternates: {
+            canonical: `${baseUrl}/${lang}`,
+            languages: languages,
+        },
         title: {
             default: dict.common.brand,
             template: `%s | ${dict.common.brand}`,
