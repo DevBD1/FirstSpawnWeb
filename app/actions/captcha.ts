@@ -32,7 +32,13 @@ export const verifyHumanityWithWit = async (success: boolean, delta: number): Pr
       model: 'gemini-2.0-flash-exp', // Fallback to 1.5 flash if this fails, but user had 3-flash-preview?
       contents: prompt,
     });
-    return response.text || (success ? "ACCESS GRANTED" : "ACCESS DENIED");
+    
+    console.log("Gemini Response Object:", JSON.stringify(response, null, 2));
+    
+    // Check if .text is a function or property
+    const text = typeof response.text === 'function' ? response.text() : response.text;
+    
+    return text || (success ? "ACCESS GRANTED" : "ACCESS DENIED");
   } catch (error) {
     console.error("Gemini API Error:", error);
     // Fallback simple messages
