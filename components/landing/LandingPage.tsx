@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import PixelHero from './PixelHero';
 import PixelButton from '../pixel/PixelButton';
+import NewsletterCaptcha from '../captcha/NewsletterCaptcha';
 
 // Enum for state
 enum AppState {
@@ -23,6 +24,8 @@ export default function LandingPage({ lang, dictionary }: LandingPageProps) {
     
     // Hytale Launch Date: Jan 13, 2026 04:00:00
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+    const [showCaptcha, setShowCaptcha] = useState(false);
+    const [isSubscribed, setIsSubscribed] = useState(false);
 
     useEffect(() => {
         // Initialize retro click/jump sound
@@ -45,6 +48,16 @@ export default function LandingPage({ lang, dictionary }: LandingPageProps) {
 
         return () => clearInterval(interval);
     }, []);
+
+    const handleSubscribe = (e: React.FormEvent) => {
+        e.preventDefault();
+        setShowCaptcha(true);
+    };
+
+    const handleVerifySuccess = () => {
+        setIsSubscribed(true);
+        setShowCaptcha(false);
+    };
 
     const handleStart = () => {
         if (appState !== AppState.IDLE) return;
@@ -127,23 +140,37 @@ export default function LandingPage({ lang, dictionary }: LandingPageProps) {
                                 Subscribe for market research insights and priority access to verified server lists.
                             </p>
                         </div>
-                        <form className="flex flex-col sm:flex-row gap-0" onSubmit={(e) => e.preventDefault()}>
-                            <input 
-                                type="email" 
-                                placeholder="Enter your email" 
-                                className="flex-grow bg-[#0B131A] border-2 border-r-0 border-[#2EBCDA]/20 text-white placeholder:text-gray-700 px-4 py-3 font-mono text-sm focus:outline-none focus:border-[#4ADE80] transition-colors"
-                            />
-                            <PixelButton 
-                                type="submit" 
-                                variant="primary"
-                                className="rounded-none sm:w-auto w-full !bg-[#4ADE80] !text-black !border-[#4ADE80]"
-                            >
-                                SCRIBE
-                            </PixelButton>
-                        </form>
+                        
+                        {isSubscribed ? (
+                             <div className="bg-[#4ADE80]/10 border-2 border-[#4ADE80] p-4 text-[#4ADE80] font-pixel text-center animate-pulse">
+                                 SUBSCRIPTION VERIFIED. WELCOME, TRAVELER.
+                             </div>
+                        ) : (
+                            <form className="flex flex-col sm:flex-row gap-0" onSubmit={handleSubscribe}>
+                                <input 
+                                    type="email" 
+                                    placeholder="Enter your email" 
+                                    className="flex-grow bg-[#0B131A] border-2 border-r-0 border-[#2EBCDA]/20 text-white placeholder:text-gray-700 px-4 py-3 font-mono text-sm focus:outline-none focus:border-[#4ADE80] transition-colors"
+                                    required
+                                />
+                                <PixelButton 
+                                    type="submit" 
+                                    variant="primary"
+                                    className="rounded-none sm:w-auto w-full !bg-[#4ADE80] !text-black !border-[#4ADE80]"
+                                >
+                                    SCRIBE
+                                </PixelButton>
+                            </form>
+                        )}
                     </div>
                 </div>
             </div>
+
+            <NewsletterCaptcha 
+                isOpen={showCaptcha} 
+                onClose={() => setShowCaptcha(false)} 
+                onVerify={handleVerifySuccess} 
+            />
 
 
             {/* 
