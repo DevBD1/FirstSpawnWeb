@@ -150,16 +150,16 @@ export default function LandingPage({ lang, dictionary }: LandingPageProps) {
                             rel="noopener noreferrer"
                             className="text-[10px] text-[#2EBCDA]/50 hover:text-[#4ADE80] font-mono uppercase mt-4 block transition-colors"
                         >
-                            Source: hytale.com/countdown
+                            {dictionary.common.source || "Source"}: hytale.com/countdown
                         </a>
                     </div>
 
                     {/* Newsletter */}
                     <div className="space-y-6 max-w-lg mx-auto">
                         <div>
-                            <h3 className="text-lg font-bold text-white pixel-font text-[#4ADE80]">JOIN THE EXPEDITION</h3>
+                            <h3 className="text-lg font-bold text-white pixel-font text-[#4ADE80]">{dictionary.common.join_newsletter_title}</h3>
                             <p className="text-xs text-[#ADCDE2]/70 mt-2 font-retro leading-relaxed">
-                                Subscribe for market research insights and priority access to verified server lists.
+                                {dictionary.common.join_newsletter_desc}
                             </p>
                         </div>
                         
@@ -176,7 +176,7 @@ export default function LandingPage({ lang, dictionary }: LandingPageProps) {
                             <form className="flex flex-col sm:flex-row gap-0 items-stretch" onSubmit={handleSubscribe}>
                                 <input 
                                     type="email" 
-                                    placeholder="Enter your email" 
+                                    placeholder={dictionary.common.enter_email}
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     className="flex-grow bg-[#0B131A] border-2 border-r-0 border-[#2EBCDA]/20 text-white placeholder:text-gray-700 px-4 py-3 font-mono text-sm focus:outline-none focus:border-[#4ADE80] transition-colors"
@@ -187,7 +187,7 @@ export default function LandingPage({ lang, dictionary }: LandingPageProps) {
                                     variant="primary"
                                     className="rounded-none sm:w-auto w-full !bg-[#4ADE80] !text-black !border-[#4ADE80]"
                                 >
-                                    SCRIBE
+                                    {dictionary.common.scribe}
                                 </PixelButton>
                             </form>
                         )}
