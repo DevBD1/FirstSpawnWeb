@@ -199,7 +199,7 @@ export default function NewsletterCaptcha({ isOpen, onClose, onVerify }: Newslet
                     
                     {/* Footer info */}
                     <div className="text-center text-[#ADCDE2]/40 text-xs font-sans mt-4">
-                        POWERED BY GEMINI 2.0 FLASH
+                        BE SMART
                         <br/>
                         Attempts: {attempts}
                     </div>
