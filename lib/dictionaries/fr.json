@@ -53,10 +53,10 @@
             }
         },
         "bottom": {
-            "copyright": "© {year} FirstSpawn. Not affiliated with Mojang or Hypixel Studios.",
-            "systemsNormal": "Systems Normal",
-            "version": "v2.4.0",
-            "crafted": "Crafted with care"
+            "copyright": "© {year} FirstSpawn. Non affilié à Hypixel Studios ou Mojang.",
+            "systemsNormal": "Systèmes Normaux",
+            "version": "v0.1.0",
+            "crafted": "Fabriqué avec soin."
         }
     },
     "home": {
