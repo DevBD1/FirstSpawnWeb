@@ -65,6 +65,11 @@
             "crafted": "Crafted with care."
         }
     },
+    "cookie_consent": {
+        "message": "We use cookies to ensure you get the best pixel-perfect experience on our website.",
+        "accept": "ACCEPT",
+        "decline": "DECLINE"
+    },
     "home": {
         "welcome": "Ready to build something amazing."
     }

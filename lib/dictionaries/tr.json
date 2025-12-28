@@ -65,6 +65,11 @@
             "crafted": "Özenle hazırlanmıştır."
         }
     },
+    "cookie_consent": {
+        "message": "Web sitemizde size en iyi piksel deneyimini sunmak için çerezleri kullanıyoruz.",
+        "accept": "KABUL ET",
+        "decline": "REDDET"
+    },
     "home": {
         "welcome": "Harika bir şeyler inşa etmeye hazırız."
     }

@@ -5,6 +5,7 @@ import { i18n, type Locale } from "../../lib/i18n-config";
 import { getDictionary } from "../../lib/get-dictionary";
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
+import CookieConsent from "../../components/layout/CookieConsent";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -116,6 +117,7 @@ export default async function RootLayout({
                     {children}
                 </main>
                 <Footer lang={lang} dictionary={dictionary} />
+                <CookieConsent dictionary={dictionary} />
             </body>
         </html>
     );
