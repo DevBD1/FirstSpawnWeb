@@ -50,12 +50,12 @@ export async function generateMetadata({
             languages: languages,
         },
         title: {
-            default: dict.common.brand,
+            default: dict.common.site_title,
             template: `%s | ${dict.common.brand}`,
         },
         description: dict.common.tagline,
         icons: {
-            icon: '/favicon.ico',
+            icon: "/favicon.ico",
         },
         openGraph: {
             title: dict.common.brand,
