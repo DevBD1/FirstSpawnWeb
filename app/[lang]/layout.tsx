@@ -6,6 +6,8 @@ import { getDictionary } from "../../lib/get-dictionary";
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
 import CookieConsent from "../../components/layout/CookieConsent";
+import { PostHogProvider } from "../../components/providers/PostHogProvider";
+import PostHogPageView from "../../components/providers/PostHogPageView";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -102,8 +104,9 @@ export default async function RootLayout({
 
     return (
         <html lang={lang}>
-            <body
-                className={`
+            <PostHogProvider>
+                <body
+                    className={`
           ${geistSans.variable} 
           ${geistMono.variable} 
           ${pressStart2P.variable} 
@@ -118,7 +121,9 @@ export default async function RootLayout({
                 </main>
                 <Footer lang={lang} dictionary={dictionary} />
                 <CookieConsent dictionary={dictionary} />
+                <PostHogPageView />
             </body>
+            </PostHogProvider>
         </html>
     );
 }
